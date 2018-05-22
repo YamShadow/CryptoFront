@@ -40,11 +40,6 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">About
-            <small>Subheading</small>
-        </h1>
-
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="index.html">Accueil</a>
@@ -52,8 +47,16 @@
             <li class="breadcrumb-item active">Liste des crypto-monnaies</li>
         </ol>
 
+        <input type="text" name="input" maxlength="5">
+        <button id="action">Rechercher la crypto-monnaie</button><br />
+
         <table id="tab-cryptos">
             <tbody>
+                <tr>
+                    <td>Nom</td>
+                    <td>Symbol</td>
+                    <td>Rang</td>
+                </tr>
             </tbody>
         </table>
 
