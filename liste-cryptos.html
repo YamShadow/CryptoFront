@@ -13,8 +13,8 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Mon CSS -->
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
 
@@ -42,40 +42,55 @@
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Accueil</a>
+                <a href="index.html">
+                    Accueil
+                </a>
             </li>
-            <li class="breadcrumb-item active">Liste des crypto-monnaies</li>
+            <li class="breadcrumb-item active">
+                Liste des crypto-monnaies
+            </li>
         </ol>
 
-        <input type="text" name="input" maxlength="5">
-        <button id="action">Rechercher la crypto-monnaie</button><br />
+        <div class="row">
 
-        <table id="tab-cryptos">
-            <tbody>
-                <tr>
-                    <td>Nom</td>
-                    <td>Symbol</td>
-                    <td>Rang</td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="col-lg-6" style="height:70px;">
+                <h3>Tableau des crypto-monnaies disponibles</h3>
+            </div>
+
+            <div class="col-lg-6" style="height:70px;">
+                <div class="input-group">
+                    <input name="input" type="text" class="form-control" placeholder="Symbole">
+                    <span class="input-group-btn">
+                        <button id="action" class="btn btn-primary" type="button">Rechercher une crypto-monnaie</button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <table id="tab-cryptos" data-toggle="table" class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th data-field="Nom">Nom</th>
+                            <th data-field="Symbole">Symbole</th>
+                            <th data-field="Rang">Rang</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
     </div>
-    <!-- /.container -->
-
-    <!-- Footer -->
-    <footer class="footer py-2 bg-dark fixed-bottom">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; CryptoFront 2018</p>
-        </div>
-        <!-- /.container -->
-    </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
+    <!-- Mon Script -->
     <script src="js/script.js"></script>
 
 </body>

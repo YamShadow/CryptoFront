@@ -13,14 +13,13 @@ window.onload = function() {
                         $('<td>').text(item.symbol),
                         $('<td>').text(item.rank)
                     ); //.appendTo('#records_table');
-                    $("#tab-cryptos").append($tr);
+                    $("#tab-cryptos tbody").append($tr);
                 });
             });
 
         }
     });
 };
-
 
 $(function() {
     $('#action').click(function() {
@@ -30,11 +29,15 @@ $(function() {
             data: {},
             dataType: 'json',
             success: function(data) {
-                $(data).each(function(i, val) {
-                    $.each(val, function(champ, valeur) {
-                        if (champ == 'id') { return true; }
 
-                        $("#tab-cryptos").append('<tr><td>' + champ + '</td><td>' + valeur + '</td></tr>');
+                $(function() {
+                    $.each(data, function(i, item) {
+                        var $tr = $('<tr>').append(
+                            $('<td>').text(item.name),
+                            $('<td>').text(item.symbol),
+                            $('<td>').text(item.rank)
+                        ); //.appendTo('#records_table');
+                        $("#tab-cryptos tbody").html($tr);
                     });
                 });
             }
