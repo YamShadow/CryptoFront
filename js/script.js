@@ -44,8 +44,9 @@ window.onload = function() {
 
 };
 
+// Une crypto-monnaies via son symbole en cliquant sur le bouton rechercheParSymbol
 $(function() {
-    $('#action').click(function() {
+    $('#rechercheParSymbol').click(function() {
         $.ajax({
             type: 'GET',
             url: 'http://yamishadow.fr/Crypto/cryptocurrencies/symbol/' + $('input[name="input"]').val(),
