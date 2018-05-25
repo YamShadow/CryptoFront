@@ -1,4 +1,6 @@
 window.onload = function() {
+
+    // Toutes les crypto-monnaies
     $.ajax({
         type: 'GET',
         url: 'http://yamishadow.fr/Crypto/cryptocurrencies',
@@ -19,6 +21,27 @@ window.onload = function() {
 
         }
     });
+
+    // Top 5 des crypto-monnaies
+    $.ajax({
+        type: 'GET',
+        url: 'http://yamishadow.fr/Crypto/cryptocurrencies',
+        data: {},
+        dataType: 'json',
+        success: function(data) {
+
+            $(function() {
+                $.each(data, function(i, item) {
+                    var $tr = $('<tr>').append(
+                        $('<td>').text(item.name),
+                        $('<td>').text(item.symbol),
+                    ); //.appendTo('#records_table');
+                    $("#tab-top5-echanges tbody").append($tr);
+                });
+            });
+        }
+    });
+
 };
 
 $(function() {
