@@ -6,18 +6,18 @@ window.onload = function() {
         data: {},
         dataType: 'json',
         success: function(data) {
-
             $(function() {
                 $.each(data.reponses, function(i, item) {
+                    var $name = item.name;
+                    var $symbol = item.symbol;
                     var $tr = $('<tr>').append(
-                        $('<td>').text(item.name),
+                        '<td><a href="monnaie.html#/' + $symbol + '">' + $name + '</a></td>',
                         $('<td>').text(item.symbol),
                         $('<td>').text(item.rank)
                     );
                     $("#tab-cryptos tbody").append($tr);
                 });
             });
-
         }
     });
 
@@ -28,7 +28,6 @@ window.onload = function() {
         data: {},
         dataType: 'json',
         success: function(data) {
-
             $(function() {
                 $.each(data.reponses, function(i, item) {
                     var $tr = $('<tr>').append(
@@ -56,7 +55,6 @@ $(function() {
             data: {},
             dataType: 'json',
             success: function(data) {
-
                 $(function() {
                     $.each(data, function(i, item) {
                         var $tr = $('<tr>').append(
