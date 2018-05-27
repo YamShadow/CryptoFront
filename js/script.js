@@ -1,5 +1,4 @@
 window.onload = function() {
-
     // Toutes les crypto-monnaies
     $.ajax({
         type: 'GET',
@@ -9,12 +8,12 @@ window.onload = function() {
         success: function(data) {
 
             $(function() {
-                $.each(data, function(i, item) {
+                $.each(data.reponses, function(i, item) {
                     var $tr = $('<tr>').append(
                         $('<td>').text(item.name),
                         $('<td>').text(item.symbol),
                         $('<td>').text(item.rank)
-                    ); //.appendTo('#records_table');
+                    );
                     $("#tab-cryptos tbody").append($tr);
                 });
             });
@@ -25,25 +24,29 @@ window.onload = function() {
     // Top 5 des crypto-monnaies
     $.ajax({
         type: 'GET',
-        url: 'http://yamishadow.fr/Crypto/cryptocurrencies',
+        url: 'http://www.yamishadow.fr/Crypto/echanges/top/7d/date/2018-05-12/limit/5',
         data: {},
         dataType: 'json',
         success: function(data) {
 
             $(function() {
-                $.each(data, function(i, item) {
+                $.each(data.reponses, function(i, item) {
                     var $tr = $('<tr>').append(
                         $('<td>').text(item.name),
                         $('<td>').text(item.symbol),
-                    ); //.appendTo('#records_table');
+                    );
                     $("#tab-top5-echanges tbody").append($tr);
                 });
             });
         }
     });
-
 };
 
+setTimeout(function() {
+    $('#tab-cryptos').DataTable();
+}, 1000);
+
+/*
 // Une crypto-monnaies via son symbole en cliquant sur le bouton rechercheParSymbol
 $(function() {
     $('#rechercheParSymbol').click(function() {
@@ -60,7 +63,7 @@ $(function() {
                             $('<td>').text(item.name),
                             $('<td>').text(item.symbol),
                             $('<td>').text(item.rank)
-                        ); //.appendTo('#records_table');
+                        );
                         $("#tab-cryptos tbody").html($tr);
                     });
                 });
@@ -68,3 +71,4 @@ $(function() {
         });
     });
 });
+*/
