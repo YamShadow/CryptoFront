@@ -1,5 +1,5 @@
 window.onload = function() {
-    // Toutes les crypto-monnaies
+    // Récupère toutes les crypto-monnaies
     $.ajax({
         type: 'GET',
         url: 'http://yamishadow.fr/Crypto/cryptocurrencies',
@@ -21,10 +21,23 @@ window.onload = function() {
         }
     });
 
-    // Top 5 des crypto-monnaies
+
+    // Return today's date and time
+    var currentTime = new Date()
+
+    // Returns the month (from 0 to 11)
+    var month = currentTime.getMonth() + 1
+
+    // Returns the day of the month (from 1 to 31)
+    var day = currentTime.getDate()
+
+    // Returns the year (four digits)
+    var year = currentTime.getFullYear()
+
+    // Récupère le top 5 des crypto-monnaies du jour en fonction des échanges
     $.ajax({
         type: 'GET',
-        url: 'http://www.yamishadow.fr/Crypto/echanges/top/7d/date/2018-05-12/limit/5',
+        url: 'http://www.yamishadow.fr/Crypto/echanges/top/7d/date/' + year + '-' + month + '-' + day + '/limit/5',
         data: {},
         dataType: 'json',
         success: function(data) {
@@ -39,34 +52,10 @@ window.onload = function() {
             });
         }
     });
+
+
+    setTimeout(function() {
+        $('#tab-cryptos').DataTable();
+    }, 1000);
+
 };
-
-setTimeout(function() {
-    $('#tab-cryptos').DataTable();
-}, 1000);
-
-/*
-// Une crypto-monnaies via son symbole en cliquant sur le bouton rechercheParSymbol
-$(function() {
-    $('#rechercheParSymbol').click(function() {
-        $.ajax({
-            type: 'GET',
-            url: 'http://yamishadow.fr/Crypto/cryptocurrencies/symbol/' + $('input[name="input"]').val(),
-            data: {},
-            dataType: 'json',
-            success: function(data) {
-                $(function() {
-                    $.each(data, function(i, item) {
-                        var $tr = $('<tr>').append(
-                            $('<td>').text(item.name),
-                            $('<td>').text(item.symbol),
-                            $('<td>').text(item.rank)
-                        );
-                        $("#tab-cryptos tbody").html($tr);
-                    });
-                });
-            }
-        });
-    });
-});
-*/

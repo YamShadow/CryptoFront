@@ -1,8 +1,9 @@
 window.onload = function() {
 
+    // Récupère le hash
     var hash = window.location.hash.substring(1);
 
-    // Toutes les crypto-monnaies
+    // Récupère les échanges de la monnaie via son symbole
     $.ajax({
         type: 'GET',
         url: 'http://yamishadow.fr/Crypto/echanges/symbol/' + hash,
@@ -26,7 +27,7 @@ window.onload = function() {
         }
     });
 
-    // Toutes les crypto-monnaies
+    // Récupère les historiques de la monnaie via son symbole
     $.ajax({
         type: 'GET',
         url: 'http://yamishadow.fr/Crypto/historiques/symbol/' + hash,
@@ -51,9 +52,10 @@ window.onload = function() {
         }
     });
 
-};
 
-setTimeout(function() {
-    $('#tab-echanges').DataTable();
-    $('#tab-historiques').DataTable();
-}, 1000);
+    setTimeout(function() {
+        $('#tab-echanges').DataTable();
+        $('#tab-historiques').DataTable();
+    }, 1000);
+
+};
