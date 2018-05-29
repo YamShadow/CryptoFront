@@ -37,7 +37,7 @@ window.onload = function() {
     // Récupère le top 5 des crypto-monnaies du jour en fonction des échanges
     $.ajax({
         type: 'GET',
-        url: 'http://www.yamishadow.fr/Crypto/echanges/top/7d/date/' + year + '-' + month + '-' + day + '/limit/5',
+        url: 'http://www.yamishadow.fr/Crypto/echanges/top/7d/date/limit/5',
         data: {},
         dataType: 'json',
         success: function(data) {
